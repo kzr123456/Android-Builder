@@ -1,0 +1,35 @@
+[
+  {
+    "kernelSource": {
+      "name": "nova4kernel",
+      "repo": "https://github.com/kzr123456/Venice-AL00-TL00-L22_PIE_EMUI9.0.1",
+      "branch": "main",
+      "device": "merge_kirin970",
+      "defconfig": "merge_kirin970_defconfig"
+    },
+    "toolchains": [
+      {
+        "name": "proton-clang",
+        "repo": "https://github.com/kdrag0n/proton-clang",
+        "branch": "master",
+        "binaryEnv": ["./bin"]
+      }
+    ],
+    "enableCcache": true,
+    "params": {
+      "ARCH": "arm64",
+      "CC": "clang",
+      "externalCommands": {
+        "CROSS_COMPILE": "proton-clang/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "proton-clang/bin/arm-linux-gnueabi-",
+        "CLANG_TRIPLE": "aarch64-linux-gnu-"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true
+    },
+    "enableKernelSU": true,
+    "enableLXC": true
+  }
+]
