@@ -87,37 +87,38 @@ jobs:
       # Install prerequisites for Ubuntu
       - name: ⭐ Install prerequisites
         run: |
-         sudo apt-get update
-         sudo apt-get install -y curl git ftp lftp wget libarchive-tools ccache python3
-         sudo apt-get install -y pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler 
-         sudo apt-get install -y libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc
-         sudo apt-get install -y libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree
-         sudo apt-get install -y build-essential bc gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi libssl-dev libfl-dev
-         sudo apt-get install -y pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl 
-         sudo apt-get install -y zip unzip tar gzip bzip2 rar unrar llvm g++-multilib bison gperf zlib1g-dev automake
+          sudo apt-get update
+          sudo apt-get install -y curl git ftp lftp wget libarchive-tools ccache python3
+          sudo apt-get install -y pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler 
+          sudo apt-get install -y libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc
+          sudo apt-get install -y libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree
+          sudo apt-get install -y build-essential bc gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi libssl-dev libfl-dev
+          sudo apt-get install -y pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl 
+          sudo apt-get install -y zip unzip tar gzip bzip2 rar unrar llvm g++-multilib bison gperf zlib1g-dev automake
 
+      # Install Python 2.7 manually
       - name: 🔧 Install Python 2.7 manually
-       run: |
-        # 下载 Python 2.7 相关包
-        wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/python2.7-minimal_2.7.18-1~20.04.3_amd64.deb
-        wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/libpython2.7_2.7.18-1~20.04.3_amd64.deb
-        wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/python2.7_2.7.18-1~20.04.3_amd64.deb
-        wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/libpython2.7-dev_2.7.18-1~20.04.3_amd64.deb
-        wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/python2.7-dev_2.7.18-1~20.04.3_amd64.deb
+        run: |
+          # 下载 Python 2.7 相关包
+          wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/python2.7-minimal_2.7.18-1~20.04.3_amd64.deb
+          wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/libpython2.7_2.7.18-1~20.04.3_amd64.deb
+          wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/python2.7_2.7.18-1~20.04.3_amd64.deb
+          wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/libpython2.7-dev_2.7.18-1~20.04.3_amd64.deb
+          wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python2.7/python2.7-dev_2.7.18-1~20.04.3_amd64.deb
 
-        # 安装 Python 2.7
-        sudo dpkg -i python2.7-minimal_2.7.18-1~20.04.3_amd64.deb
-        sudo dpkg -i libpython2.7_2.7.18-1~20.04.3_amd64.deb
-        sudo dpkg -i python2.7_2.7.18-1~20.04.3_amd64.deb
-        sudo dpkg -i libpython2.7-dev_2.7.18-1~20.04.3_amd64.deb
-        sudo dpkg -i python2.7-dev_2.7.18-1~20.04.3_amd64.deb
+          # 安装 Python 2.7
+          sudo dpkg -i python2.7-minimal_2.7.18-1~20.04.3_amd64.deb
+          sudo dpkg -i libpython2.7_2.7.18-1~20.04.3_amd64.deb
+          sudo dpkg -i python2.7_2.7.18-1~20.04.3_amd64.deb
+          sudo dpkg -i libpython2.7-dev_2.7.18-1~20.04.3_amd64.deb
+          sudo dpkg -i python2.7-dev_2.7.18-1~20.04.3_amd64.deb
 
-        # 创建符号链接
-        sudo ln -sf /usr/bin/python2.7 /usr/bin/python2
-        sudo ln -sf /usr/bin/python2.7 /usr/bin/python
+          # 创建符号链接
+          sudo ln -sf /usr/bin/python2.7 /usr/bin/python2
+          sudo ln -sf /usr/bin/python2.7 /usr/bin/python
 
-        # 清理下载的文件
-        rm -f *.deb
+          # 清理下载的文件
+          rm -f *.deb
 
       # Initialize ccache
       - name: 🚄 Setup ccache
