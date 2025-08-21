@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "Xiaomi9KernelPoweredBySeparate",
-      "repo": "https://github.com/Separatee/AllinOneKernel",
+      "name": "nova4 kernel",
+      "repo": "https://github.com/kzr123456/Venice-AL00-TL00-L22_PIE_EMUI9.0.1",
       "branch": "main",
-      "device": "cepheus",
-      "defconfig": "cepheus_defconfig"
+      "device": "VCE_AL00",
+      "defconfig": "merge_kirin970_defconfig"
     },
     "toolchains": [
       {
@@ -26,10 +26,10 @@
       }
     },
     "AnyKernel3": {
-      "use": false,
+      "use": true,
       "release": true
     },
     "enableKernelSU": false,
-    "enableLXC": false
+    "enableLXC": true
   }
 ]
